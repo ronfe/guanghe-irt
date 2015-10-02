@@ -14,7 +14,7 @@ Planning 3 parts: item parameter estimation (Python), API server (Node.js), and 
 * API Server
  - Step 1: Design website instantiation and data structure
  - Step 2: Examinee estimation algorithm (incl. examinee ability estimation, item response and re-response algorithm, Python or Node?)
- - Step 2: Build APIs according to ds and algorithm
+ - Step 3: Build APIs according to ds and algorithm
 
 * Frontend
  - Step 1: Basic framework and working progress
