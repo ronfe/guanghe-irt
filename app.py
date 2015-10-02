@@ -1,9 +1,7 @@
 __author__ = 'ronfe'
 
-import pymongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from scipy.stats import norm
 import random
 
 dbClient = MongoClient('mongodb://localhost:27017')
@@ -18,49 +16,7 @@ activities = db.activities
 problems = db.problems
 problemhistories = db.problemhistories
 
-chapterList = cvGrades.find_one({'_id': ObjectId("557e9e81c671eab2f357e689")})['chapters']
-
-tempChapter = chapterList[0]
-
-''' find histories '''
-# records = problemhistories.find({"chapter": tempChapter})
-# data = []
-# for each in records:
-#     data.append(each['problem'])
-#
-# data = list(set(data))
-#
-# # Experiment with one question
-# unitProblem = data[300]
-# pUsers = []
-
-def calcParameters(qId):
-    # Step 1 calc difficulty
-    pipeLine = [
-        {"$match": {"problem": qId}},
-        {"$group": {"_id": "$user", "correct": {"$first": "$isCorrect"}}},
-        {"$group": {"_id": "$correct", "count": {"$sum": 1}}}
-    ]
-    data = list(problemhistories.aggregate(pipeLine))
-    if data[0]['_id']:
-        correct = data[0]['count']
-        incorrect = data[1]['count']
-    else:
-        correct = data[1]['count']
-        incorrect = data[0]['count']
-    ratio = float(correct) / (correct + incorrect)
-    diff = norm.ppf(ratio)
-
-    # Step 2 calc guessing parameter
-    thisProblem = problems.find_one({"_id": qId})
-    guessingParam = float(1) / len(thisProblem['choices'])
-
-    # Step 3 calc discrimination
-
-    print guessingParam
-
-
-# calcParameters(ObjectId('54cb3731549d04051913b773'))
+# chapterList = cvGrades.find_one({'_id': ObjectId("557e9e81c671eab2f357e689")})['chapters']
 
 # Return a list of problem ids that in the topic and has at least 3 choices
 def getProblems(topicId):
