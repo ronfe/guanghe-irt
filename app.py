@@ -105,10 +105,20 @@ def getTopics(chapterId):
 
     return output
 
+# Give a chapterId, and return a list of processed topics
+def wrapUpTopics(chapterId):
+    pRatio = calcProblemRatio(chapterId, 50)
+    topicList = getTopics(chapterId)
+
+    result = []
+    for each in topicList:
+        tempTopic = getVerifiedUsers(each, pRatio)
+        result.append(tempTopic)
+
+    return result
+
 
 chapterId = ObjectId("538fe05c76cb8a0068b14031")
-pRatio = calcProblemRatio(chapterId, 50)
-topicList = getTopics(chapterId)
-a = getVerifiedUsers(topicList[0], pRatio)
+a = wrapUpTopics(chapterId)
 
 print a
