@@ -1,5 +1,7 @@
 An Item Response model based problem select - test - result project
 
+For the core theory and the basic of IRT, pls refer to [this site](http://echo.edres.org:8080/irt/ )
+
 ## Parts
 
 Planning 3 parts: item parameter estimation (Python), API server (Node.js), and frontend (AngularJS)
@@ -11,7 +13,8 @@ Planning 3 parts: item parameter estimation (Python), API server (Node.js), and 
 
 * API Server
  - Step 1: Design website instantiation and data structure
- - Step 2: Build APIs according to ds
+ - Step 2: Examinee estimation algorithm (incl. examinee ability estimation, item response and re-response algorithm, Python or Node?)
+ - Step 2: Build APIs according to ds and algorithm
 
 * Frontend
  - Step 1: Basic framework and working progress
