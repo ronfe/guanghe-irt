@@ -118,7 +118,7 @@ def wrapUpTopics(chapterId):
     return result
 
 
-chapterId = ObjectId("538fe05c76cb8a0068b14031")
-a = wrapUpTopics(chapterId)
-
-print a
+# chapterId = ObjectId("538fe05c76cb8a0068b14031")
+# a = wrapUpTopics(chapterId)
+#
+# print a
