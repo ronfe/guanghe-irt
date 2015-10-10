@@ -57,7 +57,6 @@ def divideGroup(userScores):
 
     return dividedList
 
-
 chapterId = ObjectId("538fe05c76cb8a0068b14031")
 
 
@@ -72,4 +71,4 @@ J = len(topicUserGroup)
 j = range(0, J)
 
 
-print j
+print topicUserGroup
